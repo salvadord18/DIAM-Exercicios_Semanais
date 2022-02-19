@@ -7,10 +7,13 @@
     <title> :.:Party Time:.: </title>
     <script>
 
-            // jQuery code to show the working of this method
+            // jQuery code to show the working of the pop up method
             $(document).ready(function() {
                 $("form").submit(function() {
                     alert("Formulário submetido com sucesso!");
+                });
+                $("button").click(function() {
+                    $("form").submit();
                 });
             });
         </script>
