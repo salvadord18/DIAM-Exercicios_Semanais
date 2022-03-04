@@ -16,3 +16,9 @@ h2 {
 	text-align: center;
 }
 
+ul {
+	list-style-type:none;
+	font-family: Georgia;
+	text-align: center;
+}
+
