@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+    <meta charset="UTF-8">
+    <title> :.:Party Time:.: </title>
+    <script>
+
+            // jQuery code to show the working of the pop up method
+            $(document).ready(function() {
+                $("form").submit(function() {
+                    alert("Formulário submetido com sucesso!");
+                });
+                $("submit").click(function() {
+                    $("form").submit();
+                });
+            });
+        </script>
+    <a href="https://www.iscte-iul.pt/" target="_blank">
+      <p style="text-align:center;"><img src="images\iscte.png" alt="Iscte" width="30%"/></p>
+    </a>
+</head>
+<body style="background-color: #FFD8DA;">
+<h1 style="font-family: Georgia" align=center>FORMULÁRIO PARA PERTENCERES À ORGANIZAÇÃO DA FESTA</h1>
+  <hr style="height:8px;border-width:0;color:#000000;background-color:#000000"/>
+<form action="Spring Party.html" style="font-family: Georgia" align=center>
+  <label for="fname">Nome Completo:</label><br>
+  <input type="text" style="background-color:#FDB804; border-style: hidden;" id="fname" name="name" value=><br>
+  <label for="snumber">Número de aluno</label><br>
+  <input type="number" style="background-color:#5DF7FE; border-style: hidden;" id="snumber" name="number" value=><br>
+  <label for="mail">E-mail</label><br>
+  <input type="email" style="background-color:#FE97A8; border-style: hidden;" id="mail" name="mail" value=><br>
+  <label for="tel">N.º de telemóvel</label><br>
+  <input type="phonen" style="background-color:#5DF7FE; border-style: hidden;" id="phonen" name="phonen" value=><br>
+<p>Disponibilidade:</p>
+  <input type="checkbox" id="avail1" name="avail1" value="Morning">
+  <label for="avail1"> Manhã</label><br>
+  <input type="checkbox" id="avail2" name="avail2" value="Afternoon">
+  <label for="avail2"> Tarde</label><br>
+<p>Tens certificado de vacinação?</p>
+<form>
+  <input type="radio" id="yes" name="yes" value="Sim">
+  <label for="yes">Sim</label><br>
+  <input type="radio" id="no" name="no" value="Nao">
+  <label for="no">Não</label><br>
+  <input type="submit" value="Submeter">
+<p>
+<a href="Spring Party.html">
+<button type="button" onclick="Spring Party.html">Página Inicial</button>
+</a>
+</p>
+</form> 
+</body>
+    <footer>
+<hr style="height:8px;border-width:0;color:#000000;background-color:#000000"/>
+<h2 style="font-family: Georgia" align=center>CONTACTA-NOS SE TIVERES ALGUMA DÚVIDA! </h2>
+<p style="font-family: Georgia" align=center><b>AEISCTE:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;217903018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geral@aeiscte-iul.pt  <br><br>
+      <h4 style="font-family: Georgia" align=right>Feito por: &nbsp;&nbsp;&nbsp;Artur Gonçalo Correia (98697)&nbsp;&nbsp;&nbsp;Maria Pacheco Costa (93319)&nbsp;&nbsp;&nbsp;Salvador Domingues (98475) </h4>
+      </footer>
+</html>
+
