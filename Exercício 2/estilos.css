@@ -1,5 +1,10 @@
 table {
-	background-color: navy;
+	border: 1px solid black;
+  	border-collapse: separate;
+  	font-family: Georgia;
+  	width: 100%;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
 body {
@@ -28,7 +33,25 @@ h2 {
 }
 
 ul {
-	list-style-type:none;
+	list-style-type: none;
+	font-family: Georgia;
+	text-align: center;
+}
+
+#yellow {
+	background-color:#FDB804;
+	font-family: Georgia;
+	text-align: center;
+}
+
+#blue {
+	background-color:#5DF7FE;
+	font-family: Georgia;
+	text-align: center;
+}
+
+#pink {
+	background-color:#FE97A8;
 	font-family: Georgia;
 	text-align: center;
 }
