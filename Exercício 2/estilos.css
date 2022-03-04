@@ -18,6 +18,10 @@ hr {
 	background-color:#000000;
 }
 
+p {
+	text-align:center;
+}
+
 h2 {
 	font-family: Georgia;
 	text-align: center;
@@ -27,5 +31,10 @@ ul {
 	list-style-type:none;
 	font-family: Georgia;
 	text-align: center;
+}
+
+h4 {
+	font-family: Georgia;
+	text-align: right;
 }
 
