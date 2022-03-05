@@ -28,7 +28,7 @@ hr {
 	background-color:white;
 }
 
-p {
+p, li {
 	text-align:center;
 	color: white;
 	font-size: 30px;
