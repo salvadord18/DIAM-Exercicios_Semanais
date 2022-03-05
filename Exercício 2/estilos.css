@@ -1,5 +1,5 @@
 table {
-	border: 1px solid black;
+	border: 1px solid white;
   	border-collapse: separate;
   	font-family: Georgia;
   	width: 100%;
@@ -8,7 +8,11 @@ table {
 }
 
 body {
-	background-color: #FFD8DA;
+	background-image: url('images/Iscte.JPG');
+	background-color: #5494EB;
+	background-position: bottom;
+	background-size: auto;
+	background-repeat: no-repeat;
 }
 
 h1 {
