@@ -18,13 +18,14 @@ body {
 h1 {
 	font-family: Arial black;
 	text-align: center;
+	color: white;
 }
 
 hr {
 	height:8px;
 	border-width:0;
-	color:#000000;
-	background-color:#000000;
+	color:white;
+	background-color:white;
 }
 
 p {
@@ -98,4 +99,31 @@ body {
 .topnav a.active {
   background-color: #2b74d9;
   color: white;
+}
+
+figcaption {
+	color: white;
+	text-align: center;
+}
+
+.iLB {
+    display: inline-block;
+    vertical-align: top;
+}
+
+label{
+	color:  white;
+	text-align: center;
+	font-family: Arial black;
+}
+
+input {
+	color:  black;
+	text-align: center;
+	font-family: Arial black;
+}
+
+.form-center {
+  display:flex;
+  justify-content: center;
 }

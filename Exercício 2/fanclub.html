@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+    <meta charset="UTF-8">
+    <title> :.:Party Time:.: </title>
+    <link rel="stylesheet" type="text/css" href="../Exercício 2/estilos.css">
+    <script>
+
+            // jQuery code to show the working of the pop up method
+            $(document).ready(function() {
+                $("form").submit(function() {
+                    alert("Formulário submetido com sucesso!");
+                });
+                $("submit").click(function() {
+                    $("form").submit();
+                });
+            });
+        </script>
+    <a href="https://www.iscte-iul.pt/" target="_blank">
+      <p style="text-align:center;"><img src="images\iscte-logo.png" alt="Iscte" width="30%"/></p>
+    </a>
+</head>
+<body>
+       <header>
+      <div class="page">
+  <nav class="page__menu menu">
+    <div class="topnav">
+      <a class="active" href="Spring Party.html">Início</a>
+      <a href="artists.html">Artistas</a>
+      <a href="news.html">Notícias</a>
+      <a href="fanclub.html">Clube de fãs</a>
+      <a href="contacts.html">Contactos</a>
+    </div>
+  </nav>
+</div>
+    </header>
+    <br>
+    <br>
+<h1>FORMULÁRIO PARA PERTENCERES AO CLUBE DE FÃS</h1>
+  <hr/>
+  <div class="form-center">
+<form action="Spring Party.html">
+  <label for="fname">Nome Completo:</label><br>
+  <input type="text" id="fname" name="name" value=>
+  <br><br>
+  <label for="snumber">Número de aluno:</label><br>
+  <input type="number" id="snumber" name="number" value=>
+  <br><br>
+  <label for="birthday">Data de nascimento:</label><br>
+  <input type="date" id="birthday" name="birthday">
+  <br><br>
+  <label for="tel">N.º de telemóvel:</label><br>
+  <input type="phonen" id="phonen" name="phonen" value=>
+  <br><br>
+  <label for="favcolor">Cor favorita:</label><br>
+  <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+  <br><br>
+  <label for="clube">Artista favorito:</label><br>
+<input type="text" list="artists" name="artist" id="artist">
+<datalist id="artists">
+<option value="Quim Barreiros">
+<option value="Panda e os Caricas">
+<option value="Avô Cantigas">
+</datalist>
+  <br><br>
+  <label for="birthdaytime">Proposta para marcação de reunião com a organização:</label><br>
+  <input type="datetime-local" id="time" name="time">
+  <br><br>
+  <label for="bdaymonth">Mês para começares a contruibuir para o clube de fãs:</label><br>
+  <input type="month" id="month" name="month">
+  <br><br>
+  <label for="quantity">N.º de horas disponíveis para contribuir por semana:</label><br>
+  <input type="number" id="quantity" name="quantity" min="2" max="8">
+  <br><br>
+  <label for="appt">A que horas chegas ao Iscte de manhã?</label><br>
+  <input type="time" id="appt" name="appt">
+  <br><br>
+  <label for="week">Seleciona a semana em que pretendes começar a ajudar a organização:</label><br>
+  <input type="week" id="week" name="week">
+  <br><br>
+  <label for="homepage">Adiciona a tua página pessoal:</label><br>
+  <input type="url" id="homepage" name="homepage">
+  <br><br>
+  <label for="mail">E-mail:</label><br>
+  <input type="email" id="mail" name="mail" value=><br>
+  <br><br>
+  <label for="pwd">Palavra-passe:</label><br>
+  <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
+  <br>
+  <input type="submit" value="Submeter">
+</form> 
+</div>
+</body>
+    <footer>
+<hr/>
+<h4>CONTACTA-NOS SE TIVERES ALGUMA DÚVIDA! </h4>
+      <h4>Feito por: &nbsp;&nbsp;&nbsp;Artur Gonçalo Correia (98697)&nbsp;&nbsp;&nbsp;Maria Pacheco Costa (93319)&nbsp;&nbsp;&nbsp;Salvador Domingues (98475) </h4>
+      </footer>
+</html>
+
