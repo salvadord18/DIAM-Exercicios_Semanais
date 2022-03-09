@@ -4,5 +4,9 @@ poema = "Ai que prazer / Nao cumprir um dever, / Ter um livro para ler / E nao f
 print(poema.split("/")[4:6])
 
 # 2
+<<<<<<< HEAD
 
 poema_formatado = print(poema.replace(" / ", "\n"))
+=======
+print(poema.replace("/", "\n"))
+>>>>>>> c0115ad3aa4162084cd034bdb3f479bd2ea3e501
