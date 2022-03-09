@@ -9,6 +9,10 @@ poema_formatado = poema.replace(" / ", "\n")
 print(poema_formatado)
 
 # 3
-print(poema_formatado + "\nLivros sao papeis pintados com tinta. \nEstudar e uma coisa em que esta indistinta \nA distincao entre nada e coisa nenhuma.")
+
+fim_do_poema = "\nLivros sao papeis pintados com tinta. \nEstudar e uma coisa em que esta indistinta \nA distincao entre nada e coisa nenhuma."
+print(poema_formatado + fim_do_poema)
 
 # 4
+
+poema_completo = poema_formatado + fim_do_poema
