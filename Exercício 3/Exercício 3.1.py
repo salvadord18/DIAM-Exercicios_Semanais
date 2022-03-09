@@ -4,3 +4,4 @@ poema = "Ai que prazer / Nao cumprir um dever, / Ter um livro para ler / E nao f
 print(poema.split("/")[4:6])
 
 # 2
+print(poema.replace("/", "\n"))
