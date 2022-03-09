@@ -23,3 +23,4 @@ print("\n-Alínea 4:")
 poema_completo = poema_formatado + fim_do_poema
 
 print(poema_completo.split("\n")[-2])
+print(poema_completo.split("\n")[-1])
