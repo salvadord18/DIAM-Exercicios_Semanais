@@ -3,4 +3,4 @@ poema = "Ai que prazer / Nao cumprir um dever, / Ter um livro para ler / E nao f
 # 1
 print("\n-Alínea 1:")
 
-vogais = "a", "e", "i", "o", "u"
+vogais = ("a", "e", "i", "o", "u")
