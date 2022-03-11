@@ -3,6 +3,7 @@ poema = "Ai que prazer / Nao cumprir um dever, / Ter um livro para ler / E nao f
 # 1
 print("\n-Alínea 1:")
 
+# conta o número de vogais existentes no texto;
 vowel = "aeiou"
 count ={'a':0, 'e':0,'i':0,'o':0,'u':0}
 for i in poema :
@@ -12,7 +13,8 @@ for i in poema :
         else:
             count[i] = 1
 print(count)
-#ocorrencias da cada vogal;
+
+# imprime na consola as ocorrências da cada vogal;
 for i in count :
     s = str(count[i])
     print(i + " : " + s)
