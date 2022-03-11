@@ -12,3 +12,7 @@ for i in poema :
         else:
             count[i] = 1
 print(count)
+#ocorrencias da cada vogal;
+for i in count :
+    s = str(count[i])
+    print(i + " : " + s)
