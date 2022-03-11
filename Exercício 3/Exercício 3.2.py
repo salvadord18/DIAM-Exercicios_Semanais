@@ -3,4 +3,12 @@ poema = "Ai que prazer / Nao cumprir um dever, / Ter um livro para ler / E nao f
 # 1
 print("\n-Alínea 1:")
 
-vogais = ("a", "e", "i", "o", "u")
+vowel = "aeiou"
+count ={'a':0, 'e':0,'i':0,'o':0,'u':0}
+for i in poema :
+    if i in vowel :
+        if (count[i] != 0) :
+            count[i] +=1
+        else:
+            count[i] = 1
+print(count)
