@@ -24,15 +24,15 @@ def sortString(string1, string2):
 sortString("olá", "olá")
 
 # 3)
+def testAllPoss(string1, string2, x):
+    max_length = x
+    for r in range(max_length, max_length+1):
+        for combo in combinations_with_replacement(string1, r=r):
+            lista_combinacoes = [''.join(combo)]
+            print(lista_combinacoes)
 
-string1 = "amor"
-string2 = "roma"
-max_length = 4
-
-for r in range(max_length, max_length+1):
-    for combo in combinations_with_replacement(string1, r=r):
-        lista_combinacoes = [''.join(combo)]
-        print(lista_combinacoes)
+    for string2 in lista_combinacoes:
+        print("A segunda string encontra-se na lista")
 
 if string2 in lista_combinacoes:
     print("A segunda string encontra-se na lista")
