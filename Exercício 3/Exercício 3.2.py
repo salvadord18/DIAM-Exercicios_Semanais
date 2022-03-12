@@ -19,22 +19,22 @@ for i in count:
     s = str(count[i])
     print(i + " : " + s)
 
-#  identifica a vogal mais utilizada;
-vogal_mais_usada = 0
+# identifica a vogal mais utilizada;
+vogal_mais_utilizada = 0
 for i in count:
-    if count[i] > vogal_mais_usada:
-        vogal_mais_usada = count[i]
+    if count[i] > vogal_mais_utilizada:
+        vogal_mais_utilizada = count[i]
 
 # imprime na consola a vogal mais utilizada;
 # "2."
 for i in count:
-    if count[i] == vogal_mais_usada:
+    if count[i] == vogal_mais_utilizada:
         print("vogal mais utilizada: " + i)
 
 # várias vogais empatadas com o maior número de ocorrências
 num_ocorrencias = 0
 for i in count:
-    if count[i] == vogal_mais_usada:
+    if count[i] == vogal_mais_utilizada:
         num_ocorrencias += 1
 if num_ocorrencias > 1:
     print("Há vários vencedores.")
