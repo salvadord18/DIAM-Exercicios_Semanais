@@ -1,3 +1,4 @@
+from itertools import combinations_with_replacement
 # 1)
 def functionname(string1, string2) :
     arr1 = list(string1)
@@ -24,6 +25,14 @@ sortString("olá", "olá")
 
 #3)
 
+string1 = "amor"
+string2 = "roma"
+max_length = 4
+
+for r in range(1, max_length+1):
+    for combo in combinations_with_replacement(string1, r=r):
+        lista_combinacoes = [''.join(combo)]
+        print(lista_combinacoes)
 # 4)
 def countletters(string1, string2):
     vowel = "abcdefghijklmnaopqrstuvwsyz"
