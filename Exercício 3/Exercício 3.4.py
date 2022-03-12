@@ -1,13 +1,16 @@
 # 1)
 def functionname(string1, string2) :
-    b = False
-    for i in string1:
-        for j in string2:
+    arr1 = list(string1)
+    arr2 = list(string2)
+    for i in arr1:
+        for j in arr2:
             if i == j:
-                string2 = string2.replace(j, None)
-    for a in string2:
-        if a != None:
+                arr2 = s.replace(j, "None")
+    for a in arr2:
+        if a != "None":
             print("Não é possível")
+
+functionname("olá","adeus")
 
 # 2)
 def sortString(string1, string2):
@@ -15,5 +18,7 @@ def sortString(string1, string2):
     string2 = sorted(string2)
     if string1 == string2:
         print("É possível")
+
+sortString("olá","olá")
 
 #3)
