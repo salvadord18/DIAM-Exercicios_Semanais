@@ -26,6 +26,7 @@ for i in count:
         vogal_mais_usada = count[i]
 
 # imprime na consola a vogal mais utilizada;
+# "2."
 for i in count:
     if count[i] == vogal_mais_usada:
         print("vogal mais utilizada: " + i)
