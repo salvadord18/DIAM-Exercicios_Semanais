@@ -1,4 +1,4 @@
-#1)
+# 1)
 def functionname(string1, string2) :
     b = False
     for i in string1:
@@ -9,7 +9,7 @@ def functionname(string1, string2) :
         if a != None:
             print("Não é possível")
 
-#2)
+# 2)
 def sortString(string1, string2):
     string1 = sorted(string1)
     string2 = sorted(string2)

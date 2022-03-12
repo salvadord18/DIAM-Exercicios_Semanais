@@ -1,6 +1,6 @@
 poema = "Ai que prazer / Nao cumprir um dever, / Ter um livro para ler / E nao fazer! / Ler e macada, / Estudar e nada. / Sol doira / Sem literatura / O rio corre, bem ou mal, / Sem edicao original. / E a brisa, essa, / De tao naturalmente matinal, / Como o tempo nao tem pressa..."
 
-# 1
+# 1)
 print("\n-Alínea 1:")
 
 # conta o número de vogais existentes no texto;
@@ -26,7 +26,7 @@ for i in count:
         vogal_mais_utilizada = count[i]
 
 # imprime na consola a vogal mais utilizada;
-# 2
+# 2)
 for i in count:
     if count[i] == vogal_mais_utilizada:
         print("vogal mais utilizada: " + i)
