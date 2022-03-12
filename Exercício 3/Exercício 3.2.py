@@ -15,6 +15,29 @@ for i in poema :
 print(count)
 
 # imprime na consola as ocorrências da cada vogal;
-for i in count :
+for i in count:
     s = str(count[i])
     print(i + " : " + s)
+
+#  identifica a vogal mais utilizada;
+vogal_mais_usada = 0
+for i in count:
+    if count[i] > vogal_mais_usada:
+        vogal_mais_usada = count[i]
+
+# imprime na consola a vogal mais utilizada;
+for i in count:
+    if count[i] == vogal_mais_usada:
+        print("vogal mais utilizada: " + i)
+
+# várias vogais empatadas com o maior número de ocorrências
+num_ocorrencias = 0
+for i in count:
+    if count[i] == vogal_mais_usada:
+        num_ocorrencias += 1
+if num_ocorrencias > 1:
+    print("Há vários vencedores.")
+else:
+    print("Há apenas um vencedor.")
+
+
