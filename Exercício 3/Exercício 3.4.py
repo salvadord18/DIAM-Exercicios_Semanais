@@ -34,7 +34,7 @@ for r in range(max_length, max_length+1):
         lista_combinacoes = [''.join(combo)]
         print(lista_combinacoes)
 
-for string2 in lista_combinacoes:
+if string2 in lista_combinacoes:
     print("A segunda string encontra-se na lista")
 
 # 4)
