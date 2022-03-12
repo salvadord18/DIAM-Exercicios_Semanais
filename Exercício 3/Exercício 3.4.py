@@ -36,6 +36,8 @@ for r in range(max_length, max_length+1):
 
 if string2 in lista_combinacoes:
     print("A segunda string encontra-se na lista")
+else:
+    print("A segunda string não se encontra na lista")
 
 # 4)
 def countletters(string1, string2):
