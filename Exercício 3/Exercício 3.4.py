@@ -8,6 +8,7 @@ def functionname(string1, string2) :
     for a in string2:
         if a != None:
             print("Não é possível")
+functionname("olá", "adeus")
 
 # 2)
 def sortString(string1, string2):
@@ -15,5 +16,8 @@ def sortString(string1, string2):
     string2 = sorted(string2)
     if string1 == string2:
         print("É possível")
+sortString("olá", "adeus")
 
-#3)
+# 3)
+
+# 4)
