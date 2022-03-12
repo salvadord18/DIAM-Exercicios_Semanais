@@ -5,7 +5,7 @@ def functionname(string1, string2) :
     for i in arr1:
         for j in arr2:
             if i == j:
-                arr2 = s.replace(j, "None")
+                arr2 = s.replace(j, None)
     for a in arr2:
         if a != None:
             print("As palavras não são transponíveis")
