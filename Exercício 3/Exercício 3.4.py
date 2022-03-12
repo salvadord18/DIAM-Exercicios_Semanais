@@ -23,16 +23,20 @@ def sortString(string1, string2):
 
 sortString("olá", "olá")
 
-#3)
+# 3)
 
 string1 = "amor"
 string2 = "roma"
 max_length = 4
 
-for r in range(1, max_length+1):
+for r in range(max_length, max_length+1):
     for combo in combinations_with_replacement(string1, r=r):
         lista_combinacoes = [''.join(combo)]
         print(lista_combinacoes)
+
+for string2 in lista_combinacoes:
+    print("A segunda string encontra-se na lista")
+
 # 4)
 def countletters(string1, string2):
     vowel = "abcdefghijklmnaopqrstuvwsyz"
