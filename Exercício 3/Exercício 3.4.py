@@ -31,13 +31,10 @@ def testAllPoss(string1, string2, x):
             lista_combinacoes = [''.join(combo)]
             print(lista_combinacoes)
 
-    for string2 in lista_combinacoes:
+    if string2 in lista_combinacoes:
         print("A segunda string encontra-se na lista")
-
-if string2 in lista_combinacoes:
-    print("A segunda string encontra-se na lista")
-else:
-    print("A segunda string não se encontra na lista")
+    else:
+        print("A segunda string não se encontra na lista")
 
 # 4)
 def countletters(string1, string2):
