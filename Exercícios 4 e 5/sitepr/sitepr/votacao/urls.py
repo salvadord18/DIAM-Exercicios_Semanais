@@ -10,6 +10,3 @@ urlpatterns = [ path("", views.index, name="index"),
                 path("<int:questao_id>/voto", views.voto, name="voto"),
                 path("criarquestao", views.criarquestao, name="criarquestao"),
                 path("gravarquestao", views.gravarquestao, name="gravarquestao"),]
-
-
-alteração
