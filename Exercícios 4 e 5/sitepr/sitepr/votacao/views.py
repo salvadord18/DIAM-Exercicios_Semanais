@@ -40,7 +40,7 @@ def resultados(request, questao_id):
 def criarquestao(request):
     return render(request, 'votacao/criarquestao.html')
 
-def submeter_questao(request):
+def gravarquestao(request):
     questao_texto = request.POST['questao']
     pub_data = timezone.now()
     q = Questao(questao_texto=questao_texto, pub_data=pub_data)
