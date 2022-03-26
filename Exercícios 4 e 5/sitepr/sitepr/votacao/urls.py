@@ -1,5 +1,7 @@
 from django.urls import include, path
 from . import views
+from django.utils import timezone
+import datetime
 # (. significa que importa views da mesma directoria)
 
 app_name = 'votacao'

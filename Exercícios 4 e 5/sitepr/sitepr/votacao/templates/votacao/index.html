@@ -12,11 +12,11 @@
                 <a href="{% url 'votacao:detalhe' questao.id %}">{{ questao.questao_texto }}
                 </a><br><br>
             </li>
+        {% endfor %}
             <li>
                 <a href="{% url 'votacao:criarquestao' %}">Criar nova Questão
                 </a>
             </li>
-        {% endfor %}
         </ul>
     {% else %}
         <p>Não há questões disponíveis.</p>
