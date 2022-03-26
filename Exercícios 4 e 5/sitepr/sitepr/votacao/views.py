@@ -4,6 +4,8 @@ from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from django.utils import timezone
+import datetime
 
 from .models import Questao, Opcao
 
