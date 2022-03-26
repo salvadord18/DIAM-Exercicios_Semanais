@@ -48,3 +48,12 @@ def gravarquestao(request):
     q = Questao(questao_texto=questao_texto, pub_data=pub_data)
     q.save()
     return HttpResponseRedirect(reverse('votacao:index'))
+
+def novaopcao(request, questao_id):
+    questao = get_object_or_404(Questao, pk=questao_id)
+    return render(request, 'votacao/novaopcao.html', {'questao': questao})
+
+def gravaropcao(request, questao_id):
+    questao = Questao.objects.get(pk=questao_id)
+    questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
+    return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
