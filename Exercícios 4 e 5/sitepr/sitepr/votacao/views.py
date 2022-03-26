@@ -37,8 +37,8 @@ def resultados(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     return render(request, 'votacao/resultados.html', {'questao': questao})
 
-def criar_questao(request):
-    return render(request, 'votacao/criar_questao.html')
+def criarquestao(request):
+    return render(request, 'votacao/criarquestao.html')
 
 def submeter_questao(request):
     questao_texto = request.POST['questao']

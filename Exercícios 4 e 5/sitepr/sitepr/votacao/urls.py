@@ -8,5 +8,5 @@ urlpatterns = [ path("", views.index, name="index"),
                 path("<int:questao_id>", views.detalhe, name="detalhe"),
                 path("<int:questao_id>/resultados", views.resultados, name="resultados"),
                 path("<int:questao_id>/voto", views.voto, name="voto"),
-                path("criar_questao", views.criar_questao, name="criar_questao"),
+                path("criarquestao", views.criarquestao, name="criarquestao"),
                 path("submeter_questao", views.submeter_questao, name="submeter_questao"),]
