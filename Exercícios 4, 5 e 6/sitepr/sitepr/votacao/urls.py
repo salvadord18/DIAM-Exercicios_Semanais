@@ -10,7 +10,7 @@ urlpatterns = [ path("", views.index, name="index"),
                 path("<int:questao_id>", views.detalhe, name="detalhe"),
                 path("<int:questao_id>/resultados", views.resultados, name="resultados"),
                 path("<int:questao_id>/voto", views.voto, name="voto"),
-                path("<criarquestao>", views.criarquestao, name="criarquestao"),
+                path("criarquestao", views.criarquestao, name="criarquestao"),
                 path("<gravarquestao>", views.gravarquestao, name="gravarquestao"),
                 path("<int:questao_id>/novaopcao", views.novaopcao, name="novaopcao"),
                 path("<int:questao_id>/gravaropcao", views.gravaropcao, name="gravaropcao"),]
