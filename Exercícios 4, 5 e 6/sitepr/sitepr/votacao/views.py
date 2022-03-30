@@ -59,7 +59,7 @@ def gravaropcao(request, questao_id):
     return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
 
 def removerquestao(request, questao_id):
-    
 
 
-def removeropcao
+
+def removeropcao(request, )
