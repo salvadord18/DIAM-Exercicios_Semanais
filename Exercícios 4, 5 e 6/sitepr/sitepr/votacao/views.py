@@ -57,3 +57,9 @@ def gravaropcao(request, questao_id):
     questao = Questao.objects.get(pk=questao_id)
     questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
     return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
+
+def removerquestao(request, questao_id):
+    
+
+
+def removeropcao
