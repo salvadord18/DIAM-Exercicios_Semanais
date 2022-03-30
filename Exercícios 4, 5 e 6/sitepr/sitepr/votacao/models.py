@@ -20,3 +20,10 @@ class Opcao(models.Model):
 
  def __str__(self):
   return self.opcao_texto
+
+ class Aluno(models.Model):
+     user = models.OneToOneField(User, on_delete=models.CASCADE)
+     curso = models.charField(max_length=50)
+
+     def __str__(self):
+         return self.user.username + " - " + self.curso
