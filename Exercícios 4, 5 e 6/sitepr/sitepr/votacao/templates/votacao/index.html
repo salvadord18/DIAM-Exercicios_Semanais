@@ -16,10 +16,6 @@
         {% endfor %}
                 <a href="{% url 'votacao:criarquestao' %}">Criar nova Questão
                 </a><br><br>
-                <a href="{% url 'votacao:apagarquestao' %}">Apagar esta Questão
-                </a><br><br>
-                <a href="{% url 'votacao:apagaropcao' %}">Apagar uma Opção
-                </a><br><br>
     {% else %}
         <p>Não há questões disponíveis.</p>
     {% endif %}
