@@ -14,32 +14,28 @@
         {% for opcao in questao.opcao_set.all %}
             <input type="radio" name="opcao" id="opcao{{ forloop.counter }}" value="{{ opcao.id }}" />
             <label for="opcao{{ forloop.counter }}">{{ opcao.opcao_texto }}</label>
-            <br>
+        <br>
         {% endfor %}
+        <br>
         <br>
         <input type="submit" value="Voto" />
-    </form>
-    <br>
-    <form action="{% url 'votacao:novaopcao' questao.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Criar nova Opção" />
-    </form>
-    <br>
-    <form action="{% url 'votacao:apagarquestao' questao.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Apagar esta Questão" />
-    </form>
-    <br>
-    <form action="{% url 'votacao:apagaropcao' questao.id %}" method="post">
-        {% csrf_token %}
-        {% for opcao in questao.opcao_set.all %}
-            <input type="radio" name="opcao" id="opcao{{ forloop.counter }}" value="{{ opcao.id }}" />
-            <label for="opcao{{ forloop.counter }}">{{ opcao.opcao_texto }}</label>
-            <br>
-        {% endfor %}
         <br>
-        <input type="submit" value="Apagar Opção selecionada" />
+        <br>
+        <form action="{% url 'votacao:novaopcao' questao.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Criar nova Opção" />
+        </form>
+        <br>
+        <br>
+        <form action="{% url 'votacao:apagarquestao' questao.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Apagar esta Questão" />
+        </form>
+        <br>
+        <br>
+        <button type="submit" formaction="{% url 'votacao:apagaropcao' questao.id %}">Apagar Opção selecionada</button>
     </form>
-    <br>
+        <br>
+        <br>
 </body>
 </html>
