@@ -24,5 +24,15 @@
         {% csrf_token %}
         <input type="submit" value="Criar nova Opção" />
     </form>
+    <br>
+    <form action="{% url 'votacao:apagarquestao' questao.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Apagar esta Questão" />
+    </form>
+    <br>
+    <form action="{% url 'votacao:apagaropcao' questao.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Apagar uma Opção" />
+    </form>
 </body>
 </html>

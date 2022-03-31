@@ -58,11 +58,11 @@ def gravaropcao(request, questao_id):
     questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
     return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
 
-def removerquestao(request, questao_id):
+def apagarquestao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
-    del questao
+    questao.delete()
+    return HttpResponseRedirect(reverse('votacao:index'))
 
-
-def removeropcao(request, questao_id):
+def apagaropcao(request, questao_id):
     opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    del opcao_seleccionada
+    opcao_seleccionada.delete()
