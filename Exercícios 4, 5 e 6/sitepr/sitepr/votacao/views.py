@@ -63,9 +63,6 @@ def apagarquestao(request, questao_id):
     questao.delete()
     return HttpResponseRedirect(reverse('votacao:index'))
 
-def listaopcoes(request):
-    return render(request, 'votacao/listaopcoes.html')
-
 def apagaropcao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     try:
