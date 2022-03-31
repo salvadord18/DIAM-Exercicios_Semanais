@@ -30,7 +30,7 @@
         <input type="submit" value="Apagar esta Questão" />
     </form>
     <br>
-    <form action="{% url 'votacao:apagaropcao' questao.id %}" method="post">
+    <form action="{% url 'votacao:listaopcoes' %}" method="post">
         {% csrf_token %}
         <input type="submit" value="Apagar uma Opção" />
     </form>
