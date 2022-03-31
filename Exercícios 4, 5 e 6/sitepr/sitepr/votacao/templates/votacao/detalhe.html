@@ -9,20 +9,32 @@
     {% if error_message %}
         <p><strong>{{ error_message }}</strong></p>
     {% endif %}
-    <form action="{% url 'votacao:voto' questao.id %}" method="post">
+    <form id="form1" action="{% url 'votacao:voto' questao.id %}" method="post">
         {% csrf_token %} <!--Serve para garantir que os dados do utilizador são protegidos, caso o mesmo abra outro site com más intenções enquanto está a preencher o formulário.--!>
         {% for opcao in questao.opcao_set.all %}
             <input type="radio" name="opcao" id="opcao{{ forloop.counter }}" value="{{ opcao.id }}" />
             <label for="opcao{{ forloop.counter }}">{{ opcao.opcao_texto }}</label>
-            <br>
+        <br>
+        <br>
         {% endfor %}
+        <br>
         <br>
         <input type="submit" value="Voto" />
     </form>
+    <br>
     <br>
     <form action="{% url 'votacao:novaopcao' questao.id %}" method="post">
         {% csrf_token %}
         <input type="submit" value="Criar nova Opção" />
     </form>
+    <br>
+    <br>
+    <form action="{% url 'votacao:apagarquestao' questao.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Apagar esta Questão" />
+    </form>
+    <br>
+    <br>
+    <button type="submit" form="form1" formaction="{% url 'votacao:apagaropcao' questao.id %}">Apagar Opção selecionada</button>
 </body>
 </html>

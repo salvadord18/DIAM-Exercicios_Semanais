@@ -9,6 +9,8 @@ import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.utils.datastructures import MultiValueDictKeyError
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 from .models import Questao, Opcao, Aluno
 
@@ -60,10 +62,10 @@ def gravaropcao(request, questao_id):
     questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
     return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
 
-def removerquestao(request, questao_id):
+def apagarquestao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
-    del questao
-
+    questao.delete()
+    return HttpResponseRedirect(reverse('votacao:index'))
 
 def removeropcao(request, questao_id):
     #opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
@@ -91,3 +93,21 @@ def registar(request):
 
 def profile(request):
     return render(request, 'votacao/profile.html')
+
+def logout(request):
+    logout(request)
+    return redirect('votacao/index.html')
+
+def apagaropcao(request, questao_id):
+    questao = get_object_or_404(Questao, pk=questao_id)
+    try:
+        opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
+    except (KeyError, Opcao.DoesNotExist):
+        return render(request, 'votacao/detalhe.html', {'questao': questao, 'error_message': "Não escolheu uma opção",})
+    else:
+        opcao_seleccionada.delete()
+        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
+
+
+
+

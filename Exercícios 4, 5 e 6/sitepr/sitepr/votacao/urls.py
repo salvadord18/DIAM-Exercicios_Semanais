@@ -16,6 +16,10 @@ urlpatterns = [ path("", views.index, name="index"),
                 path("<gravarquestao>", views.gravarquestao, name="gravarquestao"),
                 path("<int:questao_id>/novaopcao", views.novaopcao, name="novaopcao"),
                 path("<int:questao_id>/gravaropcao", views.gravaropcao, name="gravaropcao"),
-
+                path("gravarquestao", views.gravarquestao, name="gravarquestao"),
+                path("<int:questao_id>/novaopcao", views.novaopcao, name="novaopcao"),
+                path("<int:questao_id>/gravaropcao", views.gravaropcao, name="gravaropcao"),
+                path("<int:questao_id>/apagarquestao", views.apagarquestao, name="apagarquestao"),
+                path("<int:questao_id>/apagaropcao", views.apagaropcao, name="apagaropcao"),
                 ]
 
