@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<div>
+    {% if request.user.is_authenticated %}
+        <h2>BEM VINDO</h2>
+        <p>{{request.user.username}}</p>
+        <p>{{request.user.email}}</p>
+        <p>{{request.user.course}}</p>
+</div>
+</body>
+</html>

@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from six import string_types
 import datetime
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 class Questao(models.Model):
  questao_texto = models.CharField(max_length=200)
@@ -26,3 +28,7 @@ class Opcao(models.Model):
 
  def __del__(self):
      print("Opção eliminada")
+
+class Aluno(models.Model):
+ user = models.OneToOneField(User, on_delete=models.CASCADE())
+ course = models.CharField(max_length=50)

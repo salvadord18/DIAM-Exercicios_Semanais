@@ -6,13 +6,15 @@ from django.template import loader
 from django.urls import reverse
 from django.utils import timezone
 import datetime
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.utils.datastructures import MultiValueDictKeyError
 
-from .models import Questao, Opcao
+from .models import Questao, Opcao, Aluno
 
 def index(request):
- latest_question_list = Questao.objects.all()
-
- return render(request, 'votacao/index.html', {'latest_question_list': latest_question_list})
+    latest_question_list = Questao.objects.all()
+    return render(request, 'votacao/index.html', {'latest_question_list': latest_question_list})
 
 def detalhe(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
@@ -64,5 +66,28 @@ def removerquestao(request, questao_id):
 
 
 def removeropcao(request, questao_id):
-    opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    del opcao_seleccionada
+    #opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
+    #del opcao_seleccionada
+    print("fgrr")
+
+def registar(request):
+    try:
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        course = request.POST['course']
+        u = User.objects.create_user(username, password=password, email=email)
+        a = Aluno(user=u, course=course)
+        a.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request,'votacao/index.html')
+
+        else:
+            return render(request, 'votacao/registar.html')
+    except MultiValueDictKeyError:
+        return render(request, 'votacao/registar.html')
+
+def profile(request):
+    return render(request, 'votacao/profile.html')

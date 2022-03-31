@@ -5,12 +5,24 @@
     <title>Registo</title>
 </head>
 <body>
-<form>
-    <p>Username: </p>
-    <p><input type="text" name="username" id="username"></p>
-    <p>Password: </p>
-    <p><input type="text" name="password" id="password"></p>
+<form action="{% url 'votacao:registar'%}" method="post">
+    {% csrf_token %}
+    <div>
+      <h1>SIGN UP</h1>
+      <label for="username"><strong>Username</strong></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <br><br>
+        <label for="email"><strong>E-mail</strong></label>
+        <input type="text" placeholder="Enter E-mail" name="email" required>
+        <br><br>
+        <label for="password"><strong>Password</strong></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <br><br>
+        <label for="course"><strong>Curso</strong></label>
+        <input type="text" placeholder="Enter Course" name="course" required>
+        <br><br>
+      </div>
+      <button type="submit"><strong>SIGN UP</strong></button>
 </form>
-
 </body>
 </html>

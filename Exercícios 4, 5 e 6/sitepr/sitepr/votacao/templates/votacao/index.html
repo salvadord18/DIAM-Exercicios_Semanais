@@ -5,7 +5,17 @@
     <title>Index</title>
 </head>
 <body>
-   {% if latest_question_list %}
+<div>
+    </div>
+    {% if request.user.is_authenticated %}
+        <p>O {{request.user.username}} está logado</p>
+    {% else %}
+        <p>O utilizador não está logado</p>
+        <a href="{% url 'votacao:registar' %}">LOG IN</a>
+    {% endif %}
+</div>
+<div>
+       {% if latest_question_list %}
         {% for questao in latest_question_list %}
         <ul>
             <li>
@@ -19,5 +29,7 @@
     {% else %}
         <p>Não há questões disponíveis.</p>
     {% endif %}
+</div>
+
 </body>
 </html>
