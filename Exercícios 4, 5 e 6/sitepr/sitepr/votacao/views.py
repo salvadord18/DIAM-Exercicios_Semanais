@@ -68,6 +68,10 @@ def listaopcoes(request):
 
 def apagaropcao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
-    opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    opcao_seleccionada.delete()
-    return HttpResponseRedirect(reverse('votacao:resultados', args=(questao.id,)))
+    try:
+        opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
+    except (KeyError, Opcao.DoesNotExist):
+        return render(request, 'votacao/detalhe.html', {'questao': questao, 'error_message': "Não escolheu uma opção",})
+    else:
+        opcao_seleccionada.delete()
+        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
