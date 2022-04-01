@@ -87,14 +87,21 @@ def registar(request):
         a = Aluno(user=u, course=course)
         a.save()
         user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request,'votacao/index.html')
-
-        else:
-            return render(request, 'votacao/registar.html')
+        return render(request, 'votacao/iniciarsessao.html')
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
+
+def logoinview(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return render(request, 'votacao/index.html')
+
+    else:
+        return render(request, 'votacao/registar.html')
+
 
 def perfil(request):
     return render(request, 'votacao/perfil.html')
