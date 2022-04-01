@@ -11,6 +11,7 @@
     {% else %}
         <p>O utilizador não tem a sessão iniciada</p>
         <a href="{% url 'votacao:registar' %}">Registar</a>
+
         <a href="{% url 'votacao:iniciarsessao' %}">Iniciar Sessão</a>
     {% endif %}
 </div>

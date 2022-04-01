@@ -8,10 +8,18 @@
 <div>
     {% if request.user.is_authenticated %}
         <h2>BEM-VINDO!</h2>
-        <p>{{request.user.username}}</p>
-        <p>{{request.user.email}}</p>
-        <p>{{request.user.course}}</p>
-        <a href="{% url 'votacao:logoutview' %}">TERMINAR SESSÃO</a>
+        <form action="{% url 'votacao:logoutview' %}">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{request.user.username}}" readonly>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="{{request.user.email}}" readonly>
+            <br><br>
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso" value="{{request.user.aluno.course}}" readonly>
+            <br><br>
+            <input type="submit" value="TERMINAR SESSÃO">
+        </form>
 
     {% endif %}
 </div>
