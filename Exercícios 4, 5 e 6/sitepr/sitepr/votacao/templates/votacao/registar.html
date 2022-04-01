@@ -8,7 +8,7 @@
 <form action="{% url 'votacao:registar'%}" method="post">
     {% csrf_token %}
     <div>
-      <h1>SIGN UP</h1>
+      <h1>REGISTAR</h1>
       <label for="username"><strong>Username</strong></label>
         <input type="text" placeholder="Enter Username" name="username" required>
         <br><br>
@@ -22,7 +22,7 @@
         <input type="text" placeholder="Enter Course" name="course" required>
         <br><br>
       </div>
-      <button type="submit"><strong>SIGN UP</strong></button>
+      <button type="submit"><strong>REGISTAR</strong></button>
 </form>
 </body>
 </html>
