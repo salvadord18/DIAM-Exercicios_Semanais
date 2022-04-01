@@ -23,10 +23,6 @@ class Opcao(models.Model):
  def __str__(self):
   return self.opcao_texto
 
-
- def __del__(self):
-     print("Opção eliminada")
-
 class Aluno(models.Model):
  user = models.OneToOneField(User, on_delete=models.CASCADE)
  course = models.CharField(max_length=50)
