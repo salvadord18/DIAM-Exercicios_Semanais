@@ -28,6 +28,6 @@ class Opcao(models.Model):
      print("Opção eliminada")
 
 class Aluno(models.Model):
- user = models.OneToOneField(User, on_delete=models.CASCADE())
+ user = models.OneToOneField(User, on_delete=models.CASCADE)
  course = models.CharField(max_length=50)
 
