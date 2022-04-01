@@ -67,11 +67,6 @@ def apagarquestao(request, questao_id):
     questao.delete()
     return HttpResponseRedirect(reverse('votacao:index'))
 
-def removeropcao(request, questao_id):
-    #opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    #del opcao_seleccionada
-    print("fgrr")
-
 def registar(request):
     try:
         username = request.POST['username']
