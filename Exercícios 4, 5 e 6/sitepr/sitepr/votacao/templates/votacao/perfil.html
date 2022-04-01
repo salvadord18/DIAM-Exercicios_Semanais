@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Perfil</title>
@@ -11,7 +11,10 @@
         <p>{{request.user.username}}</p>
         <p>{{request.user.email}}</p>
         <p>{{request.user.course}}</p>
-        <a href="{% url 'votacao:logoutview' %}">TERMINAR SESSÃO</a>
+        <form action="{% url 'votacao:logoutview' %}">
+            <input type="submit" value="TERMINAR SESSÃO">
+        </form>
+
     {% endif %}
 </div>
 </body>

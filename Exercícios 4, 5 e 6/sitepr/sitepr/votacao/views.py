@@ -91,7 +91,7 @@ def registar(request):
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
 
-def logoinview(request):
+def loginview(request):
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)
