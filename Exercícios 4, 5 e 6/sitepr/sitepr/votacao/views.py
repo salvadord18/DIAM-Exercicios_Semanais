@@ -67,10 +67,15 @@ def apagarquestao(request, questao_id):
     questao.delete()
     return HttpResponseRedirect(reverse('votacao:index'))
 
-def removeropcao(request, questao_id):
-    #opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    #del opcao_seleccionada
-    print("fgrr")
+def apagaropcao(request, questao_id):
+    questao = get_object_or_404(Questao, pk=questao_id)
+    try:
+        opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
+    except (KeyError, Opcao.DoesNotExist):
+        return render(request, 'votacao/detalhe.html', {'questao': questao, 'error_message': "Não escolheu uma opção",})
+    else:
+        opcao_seleccionada.delete()
+        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
 
 def registar(request):
     try:
@@ -82,7 +87,12 @@ def registar(request):
         a = Aluno(user=u, course=course)
         a.save()
         user = authenticate(username=username, password=password)
-        return HttpResponseRedirect(reverse('votacao:loginview'))
+        if user is not None:
+            login(request, user)
+            return render(request,'votacao/index.html')
+
+        else:
+            return render(request, 'votacao/registar.html')
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
 
@@ -91,29 +101,4 @@ def perfil(request):
 
 def logoutview(request):
     logout(request)
-    return HttpResponseRedirect(reverse('votacao:index'))
-
-def loginview(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return HttpResponseRedirect(reverse('votacao:index'))
-
-    else:
-        return render(request, 'votacao/iniciarsessao.html')
-
-def apagaropcao(request, questao_id):
-    questao = get_object_or_404(Questao, pk=questao_id)
-    try:
-        opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    except (KeyError, Opcao.DoesNotExist):
-        return render(request, 'votacao/detalhe.html', {'questao': questao, 'error_message': "Não escolheu uma opção",})
-    else:
-        opcao_seleccionada.delete()
-        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
-
-
-
-
+    return redirect('votacao/index.html')
