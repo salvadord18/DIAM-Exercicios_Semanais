@@ -7,7 +7,7 @@
 <body>
 <div>
     {% if request.user.is_authenticated %}
-        <h2>BEM-VINDO</h2>
+        <h2>BEM-VINDO!</h2>
         <form action="{% url 'votacao:logoutview' %}">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="{{request.user.username}}" readonly>
