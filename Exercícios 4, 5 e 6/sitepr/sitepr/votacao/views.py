@@ -67,6 +67,16 @@ def apagarquestao(request, questao_id):
     questao.delete()
     return HttpResponseRedirect(reverse('votacao:index'))
 
+def apagaropcao(request, questao_id):
+    questao = get_object_or_404(Questao, pk=questao_id)
+    try:
+        opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
+    except (KeyError, Opcao.DoesNotExist):
+        return render(request, 'votacao/detalhe.html', {'questao': questao, 'error_message': "Não escolheu uma opção",})
+    else:
+        opcao_seleccionada.delete()
+        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
+
 def registar(request):
     try:
         username = request.POST['username']
@@ -86,23 +96,9 @@ def registar(request):
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
 
-def profile(request):
+def perfil(request):
     return render(request, 'votacao/perfil.html')
 
-def logout(request):
+def logoutview(request):
     logout(request)
     return redirect('votacao/index.html')
-
-def apagaropcao(request, questao_id):
-    questao = get_object_or_404(Questao, pk=questao_id)
-    try:
-        opcao_seleccionada = questao.opcao_set.get(pk=request.POST['opcao'])
-    except (KeyError, Opcao.DoesNotExist):
-        return render(request, 'votacao/detalhe.html', {'questao': questao, 'error_message': "Não escolheu uma opção",})
-    else:
-        opcao_seleccionada.delete()
-        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
-
-
-
-
