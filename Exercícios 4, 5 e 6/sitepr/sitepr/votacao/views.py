@@ -82,12 +82,7 @@ def registar(request):
         a = Aluno(user=u, course=course)
         a.save()
         user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request,'votacao/index.html')
-
-        else:
-            return render(request, 'votacao/registar.html')
+        return HttpResponseRedirect(reverse('votacao:loginview'))
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
 
@@ -96,7 +91,18 @@ def perfil(request):
 
 def logoutview(request):
     logout(request)
-    return redirect('votacao/index.html')
+    return HttpResponseRedirect(reverse('votacao:index'))
+
+def loginview(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return HttpResponseRedirect(reverse('votacao:index'))
+
+    else:
+        return render(request, 'votacao/iniciarsessao.html')
 
 def apagaropcao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
