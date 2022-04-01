@@ -94,7 +94,7 @@ def registar(request):
 def profile(request):
     return render(request, 'votacao/profile.html')
 
-def logout(request):
+def logoutview(request):
     logout(request)
     return redirect('votacao/index.html')
 
