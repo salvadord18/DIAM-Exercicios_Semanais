@@ -91,7 +91,7 @@ def registar(request):
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
 
-def profile(request):
+def perfil(request):
     return render(request, 'votacao/perfil.html')
 
 def logout(request):
