@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>Perfil</title>
 </head>
 <body>
 <div>
     {% if request.user.is_authenticated %}
-        <h2>BEM VINDO</h2>
+        <h2>BEM-VINDO</h2>
         <p>{{request.user.username}}</p>
         <p>{{request.user.email}}</p>
         <p>{{request.user.course}}</p>
-        <a href="{% url 'votacao:logout' %}">LOGOUT</a>
+        <a href="{% url 'votacao:logout' %}">TERMINAR SESSÃO</a>
     {% endif %}
 </div>
 </body>

@@ -7,10 +7,10 @@
 <body>
 <div>
     {% if request.user.is_authenticated %}
-        <p>O {{request.user.username}} está logado</p>
+        <p>O {{request.user.username}} tem a sessão iniciada</p>
     {% else %}
-        <p>O utilizador não está logado</p>
-        <a href="{% url 'votacao:registar' %}">LOG IN</a>
+        <p>O utilizador não tem a sessão iniciada</p>
+        <a href="{% url 'votacao:registar' %}">Registar</a>
     {% endif %}
 </div>
 <div>

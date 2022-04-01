@@ -92,7 +92,7 @@ def registar(request):
         return render(request, 'votacao/registar.html')
 
 def profile(request):
-    return render(request, 'votacao/profile.html')
+    return render(request, 'votacao/perfil.html')
 
 def logout(request):
     logout(request)
