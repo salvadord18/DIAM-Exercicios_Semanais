@@ -5,7 +5,7 @@
     <title>Iniciar Sessão</title>
 </head>
 <body>
-    <form action="{% url 'votacao:loginview'%}" method="post">
+    <form action="{% url 'votacao:iniciarsessao' %}" method="post">
         {% csrf_token %}
         <div>
           <h1>INICIAR SESSÃO</h1>

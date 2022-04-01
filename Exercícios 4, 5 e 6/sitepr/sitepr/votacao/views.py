@@ -91,16 +91,20 @@ def registar(request):
     except MultiValueDictKeyError:
         return render(request, 'votacao/registar.html')
 
-def loginview(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, 'votacao/index.html')
+def iniciarsessao(request):
+    try:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
 
-    else:
-        return render(request, 'votacao/registar.html')
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('votacao:index'))
+
+        else:
+            return render(request, 'votacao/registar.html')
+    except MultiValueDictKeyError:
+        return render(request, 'votacao/iniciarsessao.html')
 
 
 def perfil(request):
@@ -108,4 +112,4 @@ def perfil(request):
 
 def logoutview(request):
     logout(request)
-    return redirect('votacao/index.html')
+    return HttpResponseRedirect(reverse('votacao:index'))
