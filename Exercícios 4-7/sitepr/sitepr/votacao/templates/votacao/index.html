@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title> {% block titulo %} Lista de perguntas {% endblock %} </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'votacao/css/estilos.css' %}">
 </head>
 <body>
 <div>
@@ -15,7 +17,10 @@
         <a href="{% url 'votacao:iniciarsessao' %}">Iniciar Sessão</a>
     {% endif %}
 </div>
+{% block body %}
 <div>
+
+
        {% if latest_question_list %}
         {% for questao in latest_question_list %}
         <ul>
@@ -30,6 +35,7 @@
     {% else %}
         <p>Não há questões disponíveis.</p>
     {% endif %}
+
 </div>
 
 
@@ -38,5 +44,6 @@
         <p><a href="{% url 'votacao:perfil' %}"/>O teu perfil</p>
     {% endif %}
 </div>
+{% endblock %}
 </body>
 </html>

@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>Perfil</title>
-</head>
-<body>
+{% extends "./index.html" %}
+
+{% block titulo %} Perfil {% endblock %}
+
+{% block body %}
+
 <div>
     {% if request.user.is_authenticated %}
         <h2>BEM-VINDO!</h2>
         <form action="{% url 'votacao:logoutview' %}">
-            <label for="username">Username:</label>
+            <label for="username">Nome de utilizador:</label>
             <input type="text" id="username" name="username" value="{{request.user.username}}" readonly>
             <br><br>
-            <label for="email">Email:</label>
+            <label for="email">E-mail:</label>
             <input type="text" id="email" name="email" value="{{request.user.email}}" readonly>
             <br><br>
             <label for="curso">Curso:</label>
             <input type="text" id="curso" name="curso" value="{{request.user.aluno.course}}" readonly>
             <br><br>
             <input type="submit" value="TERMINAR SESSÃO">
+            <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
         </form>
 
     {% endif %}
 </div>
-</body>
-</html>
+
+{% endblock %}

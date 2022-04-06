@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detalhe</title>
-</head>
-<body>
+{% extends "./index.html" %}
+
+{% block titulo %} Questão {% endblock %}
+
+{% block body %}
+
     <h1>{{ questao.questao_texto }}</h1>
     {% if error_message %}
         <p><strong>{{ error_message }}</strong></p>
@@ -18,12 +17,10 @@
         <br>
         {% endfor %}
         <br>
-        <br>
         {% if request.user.is_authenticated %}
             <input type="submit" value="Voto" />
         {% endif %}
     </form>
-    <br>
     <br>
     {% if request.user.is_authenticated and request.user.is_superuser %}
 
@@ -41,5 +38,6 @@
         <br>
         <button type="submit" form="form1" formaction="{% url 'votacao:apagaropcao' questao.id %}">Apagar Opção selecionada</button>
     {% endif %}
-</body>
-</html>
+        <button type="submit" form="form1" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
+
+{% endblock %}

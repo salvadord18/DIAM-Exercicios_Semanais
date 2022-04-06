@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registo</title>
-</head>
-<body>
+{% extends "./index.html" %}
+
+{% block titulo %} Registo {% endblock %}
+
+{% block body %}
+
 <form action="{% url 'votacao:registar'%}" method="post">
     {% csrf_token %}
     <div>
@@ -24,5 +23,5 @@
       </div>
       <button type="submit"><strong>REGISTAR</strong></button>
 </form>
-</body>
-</html>
+
+{% endblock %}

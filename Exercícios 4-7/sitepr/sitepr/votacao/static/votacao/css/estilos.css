@@ -1,0 +1,153 @@
+table {
+	border: 1px solid white;
+  	border-collapse: separate;
+  	font-family: Arial black;
+  	width: 100%;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+body {
+	background-image: url('images/Iscte.JPG');
+	background-color: #5494EB;
+	background-position: center;
+	background-size: auto;
+	background-repeat: no-repeat;
+}
+
+h1 {
+	font-family: Arial black;
+	text-align: center;
+	color: white;
+}
+
+hr {
+	height:8px;
+	border-width:0;
+	color:white;
+	background-color:white;
+}
+
+p, li {
+	text-align:center;
+	color: white;
+	font-size: 30px;
+}
+
+h2 {
+	font-family: Arial black;
+	text-align: center;
+	color: white;
+	font-size: 60px;
+}
+
+ul {
+	list-style-type: none;
+	font-family: Arial black;
+	text-align: center;
+}
+
+#yellow {
+	background-color:#FDB804;
+	font-family: Arial black;
+	text-align: center;
+}
+
+#blue {
+	background-color:#5DF7FE;
+	font-family: Arial black;
+	text-align: center;
+}
+
+#pink {
+	background-color:#FE97A8;
+	font-family: Arial black;
+	text-align: center;
+}
+
+h4 {
+	font-family: Arial black;
+	text-align: center;
+	color: white;
+	position: bottom;
+}
+
+body {
+  margin: 0;
+  font-family: Arial black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2b74d9;
+  color: white;
+}
+
+figcaption {
+	color: white;
+	text-align: center;
+}
+
+.iLB {
+    display: inline-block;
+    vertical-align: top;
+}
+
+label{
+	color:  white;
+	text-align: center;
+	font-family: Arial black;
+}
+
+input {
+	color:  black;
+	text-align: center;
+	font-family: Arial black;
+}
+
+.form-center {
+  display:flex;
+  justify-content: center;
+}
+
+.articles {
+  margin: 0;
+  padding: 5px;
+  background-color: #5494EB;
+}
+
+.articles > h1, .article {
+  margin: 10px;
+  padding: 5px;
+}
+
+.article {
+  background: darkgray;
+}
+
+.article > h2, p {
+  margin: 4px;
+  font-size: 90%;
+}
+
+aside {
+  background-color: darkgray;
+}
