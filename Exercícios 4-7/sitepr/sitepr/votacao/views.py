@@ -44,7 +44,7 @@ def resultados(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     return render(request, 'votacao/resultados.html', {'questao': questao})
 
-def view_questao_otimizada(request, q_id):
+def view_questao_otimizada(request, questao_id):
     if request.method == 'POST':
         questao_texto = request.POST['questao']
         pub_data = timezone.now()
@@ -54,7 +54,7 @@ def view_questao_otimizada(request, q_id):
     else:
         return render(request, 'votacao/criarquestao.html')
 
-def view_opcao_otimizada(request, q_id):
+def view_opcao_otimizada(request, questao_id):
     if request.method == 'POST':
         questao = Questao.objects.get(pk=questao_id)
         questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
