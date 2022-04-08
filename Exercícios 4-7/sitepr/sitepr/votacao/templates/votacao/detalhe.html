@@ -24,13 +24,13 @@
     <br>
     {% if request.user.is_authenticated and request.user.is_superuser %}
 
-        <form action="{% url 'votacao:view_opcao_otimizada' questao.id %}" method="post">
+        <form action="{% url 'votacao:view_opcao_otimizada' questao.id %}" method="get">
             {% csrf_token %}
             <input type="submit" value="Criar nova Opção" />
         </form>
         <br>
         <br>
-        <form action="{% url 'votacao:apagarquestao' questao.id %}" method="post">
+        <form action="{% url 'votacao:apagarquestao' questao.id %}" method="get">
                 {% csrf_token %}
                 <input type="submit" value="Apagar esta Questão" />
         </form>
