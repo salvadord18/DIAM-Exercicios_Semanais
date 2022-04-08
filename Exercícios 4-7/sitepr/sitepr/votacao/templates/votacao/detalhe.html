@@ -1,4 +1,4 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Questão {% endblock %}
 
@@ -38,6 +38,8 @@
         <br>
         <button type="submit" form="form1" formaction="{% url 'votacao:apagaropcao' questao.id %}">Apagar Opção selecionada</button>
     {% endif %}
-        <button type="submit" form="form1" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
+    <br>
+    <br>
+    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
 
 {% endblock %}

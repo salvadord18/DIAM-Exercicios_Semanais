@@ -1,4 +1,4 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Perfil {% endblock %}
 
@@ -7,7 +7,7 @@
 <div>
     {% if request.user.is_authenticated %}
         <h2>BEM-VINDO!</h2>
-        <form action="{% url 'votacao:logoutview' %}">
+        <form id="form1" action="{% url 'votacao:logoutview' %}">
             <label for="username">Nome de utilizador:</label>
             <input type="text" id="username" name="username" value="{{request.user.username}}" readonly>
             <br><br>
@@ -17,23 +17,25 @@
             <label for="curso">Curso:</label>
             <input type="text" id="curso" name="curso" value="{{request.user.aluno.course}}" readonly>
             <br><br>
+            </form>
             <form method="post" enctype="multipart/form-data" action="{% url 'votacao:fazer_upload' %}">
                 {% csrf_token %}
                 <input type="file" name="myfile">
                 <input type="submit" value="Upload">
             </form>
+
+            <button type="submit" formaction="{% url 'votacao:fazer_upload' %}">Upload</button>
             {% if uploaded_file_url %}
                 <p>Feito o upload para:
                     <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a>
                 </p>
             {% endif %}
-            <p><a href="{% url 'votacao:index' %}"> Voltar ao inicio</a></p>
             <br><br>
-            <input type="submit" value="TERMINAR SESSÃO">
-            <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
-        </form>
-
+            <input type="submit" form="form1" value="TERMINAR SESSÃO">
     {% endif %}
 </div>
+    <br>
+    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
+
 
 {% endblock %}

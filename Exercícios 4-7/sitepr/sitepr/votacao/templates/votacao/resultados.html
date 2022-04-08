@@ -1,8 +1,9 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Resultados {% endblock %}
 
-<body>
+{% block body %}
+
     <form action="{% url 'votacao:detalhe' questao.id %}" method="post">
         {% csrf_token %}
         <h1>{{ questao.questao_texto }}</h1>
@@ -14,6 +15,7 @@
         <input type="submit" value="Votar novamente?"/>
         <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
     </form>
-</body>
+    <br>
+    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
 
 {% endblock %}

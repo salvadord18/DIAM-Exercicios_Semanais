@@ -20,7 +20,6 @@
 {% block body %}
 <div>
 
-
        {% if latest_question_list %}
         {% for questao in latest_question_list %}
         <ul>
@@ -37,8 +36,6 @@
     {% endif %}
 
 </div>
-
-
 <div>
     {% if request.user.is_authenticated %}
         <p><a href="{% url 'votacao:perfil' %}"/>O teu perfil</p>

@@ -1,4 +1,4 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Criar questão {% endblock %}
 
@@ -10,6 +10,7 @@
         <input type="submit" value="Gravar nova Questão">
         <br>
         <br>
-        <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
     </form>
+    <br>
+    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
 {% endblock %}
