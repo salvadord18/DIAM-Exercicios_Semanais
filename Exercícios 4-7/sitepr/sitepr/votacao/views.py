@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 import datetime
 from django.contrib.auth import authenticate, login
@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required, permission_required
 
 from .models import Questao, Opcao, Aluno
 
@@ -23,7 +24,7 @@ def detalhe(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     return render(request, 'votacao/detalhe.html', {'questao': questao})
 
-@login_required(login_url='votacao/registar.html')
+@login_required(login_url='/votacao/iniciarsessao')
 def voto(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     try:
@@ -45,6 +46,7 @@ def resultados(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     return render(request, 'votacao/resultados.html', {'questao': questao})
 
+@permission_required('votacao.add_questao', login_url=reverse_lazy('votacao:iniciarsessao'))
 def view_questao_otimizada(request):
     if request.method == 'POST':
         questao_texto = request.POST['questao']
@@ -55,6 +57,7 @@ def view_questao_otimizada(request):
     else:
         return render(request, 'votacao/criarquestao.html')
 
+@permission_required('votacao.add_opcao', login_url=reverse_lazy('votacao:iniciarsessao'))
 def view_opcao_otimizada(request, questao_id):
     if request.method == 'POST':
         questao = Questao.objects.get(pk=questao_id)
