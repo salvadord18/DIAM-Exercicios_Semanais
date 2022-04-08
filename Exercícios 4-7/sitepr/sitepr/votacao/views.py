@@ -23,6 +23,7 @@ def detalhe(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     return render(request, 'votacao/detalhe.html', {'questao': questao})
 
+@login_required(login_url='votacao/registar.html')
 def voto(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     try:
@@ -115,6 +116,7 @@ def logoutview(request):
     logout(request)
     return HttpResponseRedirect(reverse('votacao:index'))
 
+@login_required(login_url='votacao/registar.html')
 def fazer_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
