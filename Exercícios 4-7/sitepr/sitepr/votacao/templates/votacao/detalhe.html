@@ -24,7 +24,7 @@
     <br>
     {% if request.user.is_authenticated and request.user.is_superuser %}
 
-        <form action="{% url 'votacao:novaopcao' questao.id %}" method="post">
+        <form action="{% url 'votacao:view_opcao_otimizada' questao.id %}" method="post">
             {% csrf_token %}
             <input type="submit" value="Criar nova Opção" />
         </form>

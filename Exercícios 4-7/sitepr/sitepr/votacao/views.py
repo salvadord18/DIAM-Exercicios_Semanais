@@ -44,24 +44,24 @@ def resultados(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     return render(request, 'votacao/resultados.html', {'questao': questao})
 
-def criarquestao(request):
-    return render(request, 'votacao/criarquestao.html')
+def view_questao_otimizada(request, q_id):
+    if request.method == 'POST':
+        questao_texto = request.POST['questao']
+        pub_data = timezone.now()
+        q = Questao(questao_texto=questao_texto, pub_data=pub_data)
+        q.save()
+        return HttpResponseRedirect(reverse('votacao:index'))
+    else:
+        return render(request, 'votacao/criarquestao.html')
 
-def gravarquestao(request):
-    questao_texto = request.POST['questao']
-    pub_data = timezone.now()
-    q = Questao(questao_texto=questao_texto, pub_data=pub_data)
-    q.save()
-    return HttpResponseRedirect(reverse('votacao:index'))
-
-def novaopcao(request, questao_id):
-    questao = get_object_or_404(Questao, pk=questao_id)
-    return render(request, 'votacao/novaopcao.html', {'questao': questao})
-
-def gravaropcao(request, questao_id):
-    questao = Questao.objects.get(pk=questao_id)
-    questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
-    return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
+def view_opcao_otimizada(request, q_id):
+    if request.method == 'POST':
+        questao = Questao.objects.get(pk=questao_id)
+        questao.opcao_set.create(opcao_texto=request.POST['opcao'], votos=0)
+        return HttpResponseRedirect(reverse('votacao:detalhe', args=(questao.id,)))
+    else:
+        questao = get_object_or_404(Questao, pk=questao_id)
+        return render(request, 'votacao/novaopcao.html', {'questao': questao})
 
 def apagarquestao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
