@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
@@ -113,3 +114,14 @@ def perfil(request):
 def logoutview(request):
     logout(request)
     return HttpResponseRedirect(reverse('votacao:index'))
+
+def fazer_upload(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request,'votacao/fazer_upload.html', {'uploaded_file_url': uploaded_file_url})
+    return render(request, 'votacao/fazer_upload.html')
+
+
