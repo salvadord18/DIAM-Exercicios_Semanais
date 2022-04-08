@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <form action="{% url 'votacao:iniciarsessao' %}" method="post">
+    <form id="form1" action="{% url 'votacao:iniciarsessao' %}" method="post">
         {% csrf_token %}
         <div>
           <h1>INICIAR SESSÃO</h1>
@@ -16,7 +16,8 @@
             <br><br>
           </div>
           <button type="submit"><strong>INICIAR SESSÃO</strong></button>
-          <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
     </form>
+    <br>
+    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
 
 {% endblock %}

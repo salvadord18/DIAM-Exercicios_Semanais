@@ -32,8 +32,10 @@
             {% endif %}
             <br><br>
             <input type="submit" form="form1" value="TERMINAR SESSÃO">
-            <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
     {% endif %}
 </div>
+    <br>
+    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
+
 
 {% endblock %}
