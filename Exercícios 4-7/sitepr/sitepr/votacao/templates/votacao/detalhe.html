@@ -39,6 +39,7 @@
         <button type="submit" form="form1" formaction="{% url 'votacao:apagaropcao' questao.id %}">Apagar Opção selecionada</button>
     {% endif %}
     <br>
+    <br>
     <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
 
 {% endblock %}
