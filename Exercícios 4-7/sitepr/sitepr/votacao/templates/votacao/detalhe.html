@@ -1,4 +1,4 @@
-{% extends "./index.html" %}
+{% extends "./secondbase.html" %}
 
 {% block titulo %} Questão {% endblock %}
 
@@ -20,6 +20,8 @@
         {% if request.user.is_authenticated %}
             <input type="submit" value="Voto" />
         {% endif %}
+        <br>
+        <br>
     </form>
     <br>
     {% if request.user.is_authenticated and request.user.is_superuser %}
@@ -40,6 +42,5 @@
     {% endif %}
     <br>
     <br>
-    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
 
 {% endblock %}
