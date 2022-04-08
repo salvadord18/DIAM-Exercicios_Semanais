@@ -23,5 +23,6 @@ urlpatterns = [ path("", views.index, name="index"),
                 path("<int:questao_id>/gravaropcao", views.gravaropcao, name="gravaropcao"),
                 path("<int:questao_id>/apagarquestao", views.apagarquestao, name="apagarquestao"),
                 path("<int:questao_id>/apagaropcao", views.apagaropcao, name="apagaropcao"),
+                path("", views.secondbase, name="secondbase"),
                 ]
 
