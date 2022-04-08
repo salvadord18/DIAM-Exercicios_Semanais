@@ -27,7 +27,6 @@
                     <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a>
                 </p>
             {% endif %}
-            <p><a href="{% url 'votacao:index' %}"> Voltar ao inicio</a></p>
             <br><br>
             <input type="submit" value="TERMINAR SESSÃO">
             <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
