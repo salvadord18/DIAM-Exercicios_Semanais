@@ -1,4 +1,4 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Perfil {% endblock %}
 
@@ -17,6 +17,7 @@
             <label for="curso">Curso:</label>
             <input type="text" id="curso" name="curso" value="{{request.user.aluno.course}}" readonly>
             <br><br>
+            </form>
             <form method="post" enctype="multipart/form-data" action="{% url 'votacao:fazer_upload' %}">
                 {% csrf_token %}
                 <input type="file" name="myfile">
@@ -30,10 +31,8 @@
                 </p>
             {% endif %}
             <br><br>
-            <input type="submit" value="TERMINAR SESSÃO">
+            <input type="submit" form="form1" value="TERMINAR SESSÃO">
             <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
-        </form>
-
     {% endif %}
 </div>
 

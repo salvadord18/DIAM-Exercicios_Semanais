@@ -1,4 +1,4 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Nova Opção {% endblock %}
 
@@ -9,6 +9,7 @@
         {% csrf_token %}
         <input type="text" name="opcao" id="opcao">
         <input type="submit" value="Gravar nova Opção">
+        <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
     </form>
 
 {% endblock %}

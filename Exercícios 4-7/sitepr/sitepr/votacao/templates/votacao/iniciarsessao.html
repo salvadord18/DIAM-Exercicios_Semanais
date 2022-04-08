@@ -1,4 +1,4 @@
-{% extends "./secondbase.html" %}
+{% extends "./index.html" %}
 
 {% block titulo %} Iniciar Sessão {% endblock %}
 
@@ -16,7 +16,7 @@
             <br><br>
           </div>
           <button type="submit"><strong>INICIAR SESSÃO</strong></button>
-        <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
+          <button type="submit" formaction="{% url 'votacao:index' %}">Voltar à página inicial</button>
     </form>
 
 {% endblock %}
