@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lâmpada</title>
+</head>
+<body>
+
+    <h2>Lâmpada</h2>
+
+    <button onclick="document.getElementById('lampada').src='on.gif'">
+        Acender
+    </button>
+
+    <img id="lampada" src="off.gif">
+
+    <button onclick="document.getElementById('lampada').src='off.gif'">
+        Apagar
+    </button>
+    <br><br>
+    <button onmouseout="document.getElementById('lampada').src='off.gif'" onmouseover="document.getElementById('lampada').src='on.gif'">
+        ON/OFF
+    </button>
+</body>
+</html>
