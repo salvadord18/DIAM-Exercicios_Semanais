@@ -67,11 +67,13 @@ def view_opcao_otimizada(request, questao_id):
         questao = get_object_or_404(Questao, pk=questao_id)
         return render(request, 'votacao/novaopcao.html', {'questao': questao})
 
+@permission_required('votacao.add_opcao', login_url=reverse_lazy('votacao:iniciarsessao'))
 def apagarquestao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     questao.delete()
     return HttpResponseRedirect(reverse('votacao:index'))
 
+@permission_required('votacao.add_opcao', login_url=reverse_lazy('votacao:iniciarsessao'))
 def apagaropcao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     try:
@@ -113,7 +115,12 @@ def iniciarsessao(request):
 
 
 def perfil(request):
-    return render(request, 'votacao/perfil.html')
+    try:
+        uploaded_file_url = request.user.foto.foto_url
+        return render(request, 'votacao/perfil.html', {'uploaded_file_url': uploaded_file_url})
+    except:
+        return render(request, 'votacao/perfil.html')
+
 
 def logoutview(request):
     logout(request)
@@ -126,6 +133,9 @@ def fazer_upload(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+        u = request.user
+        foto = Foto(user=u, foto_url=uploaded_file_url)
+        foto.save()
         return render(request,'votacao/perfil.html', {'uploaded_file_url': uploaded_file_url})
     return render(request, 'votacao/perfil.html')
 
