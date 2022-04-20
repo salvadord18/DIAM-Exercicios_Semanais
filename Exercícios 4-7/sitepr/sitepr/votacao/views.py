@@ -67,11 +67,13 @@ def view_opcao_otimizada(request, questao_id):
         questao = get_object_or_404(Questao, pk=questao_id)
         return render(request, 'votacao/novaopcao.html', {'questao': questao})
 
+@permission_required('votacao.add_opcao', login_url=reverse_lazy('votacao:iniciarsessao'))
 def apagarquestao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     questao.delete()
     return HttpResponseRedirect(reverse('votacao:index'))
 
+@permission_required('votacao.add_opcao', login_url=reverse_lazy('votacao:iniciarsessao'))
 def apagaropcao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     try:
