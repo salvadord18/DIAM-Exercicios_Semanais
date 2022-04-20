@@ -10,6 +10,7 @@ import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.utils.datastructures import MultiValueDictKeyError
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
@@ -118,7 +119,7 @@ def perfil(request):
     try:
         uploaded_file_url = request.user.foto.foto_url
         return render(request, 'votacao/perfil.html', {'uploaded_file_url': uploaded_file_url})
-    except RelatedObjectDoesNotExist:
+    except ObjectDoesNotExist:
         return render(request, 'votacao/perfil.html')
 
 
