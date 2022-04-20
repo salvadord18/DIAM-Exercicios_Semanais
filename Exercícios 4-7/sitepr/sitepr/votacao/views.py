@@ -113,7 +113,8 @@ def iniciarsessao(request):
 
 
 def perfil(request):
-    return render(request, 'votacao/perfil.html')
+    uploaded_file_url = request.user.foto.foto_url
+    return render(request, 'votacao/perfil.html', {'uploaded_file_url':uploaded_file_url})
 
 def logoutview(request):
     logout(request)
@@ -126,6 +127,8 @@ def fazer_upload(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+        u = request.user
+        foto=Foto(user=u, foto_url=uploaded_file_url)
         return render(request,'votacao/perfil.html', {'uploaded_file_url': uploaded_file_url})
     return render(request, 'votacao/perfil.html')
 

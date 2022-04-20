@@ -27,3 +27,7 @@ class Aluno(models.Model):
  user = models.OneToOneField(User, on_delete=models.CASCADE)
  course = models.CharField(max_length=50)
 
+ class Foto(models.Model):
+     user = models.OneToOneField(User, on_delete=models.CASCADE)
+     foto_url = models.CharField(max_length=100)
+
