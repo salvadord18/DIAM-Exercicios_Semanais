@@ -14,7 +14,7 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
 
-from .models import Questao, Opcao, Aluno
+from .models import Questao, Opcao, Aluno, Foto
 
 def index(request):
     latest_question_list = Questao.objects.all()
@@ -118,7 +118,7 @@ def perfil(request):
     try:
         uploaded_file_url = request.user.foto.foto_url
         return render(request, 'votacao/perfil.html', {'uploaded_file_url': uploaded_file_url})
-    except:
+    except RelatedObjectDoesNotExist:
         return render(request, 'votacao/perfil.html')
 
 
@@ -133,7 +133,7 @@ def fazer_upload(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        u = request.user
+        u = request.user.user_id
         foto = Foto(user=u, foto_url=uploaded_file_url)
         foto.save()
         return render(request,'votacao/perfil.html', {'uploaded_file_url': uploaded_file_url})
