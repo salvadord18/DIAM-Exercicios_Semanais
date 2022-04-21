@@ -20,16 +20,16 @@
     </div>
     {% block body %}
         <button id="botaoQuestoes" onclick="listaQuestoes()">
-            Esconder lista de Questões
+            Mostrar lista de Questões
         </button>
     <div id="questoes" class="hidden">
         <script>
             const botaoQuestoes = document.getElementById('botaoQuestoes');
             botaoQuestoes.addEventListener('click', function handleClick() {
-                if (botaoQuestoes.textContent == 'Mostrar lista de Questões') {
-                    botaoQuestoes.textContent = 'Esconder lista de Questões';
+                if (botaoQuestoes.textContent == 'Esconder lista de Questões') {
+                    botaoQuestoes.textContent = 'Mostrar lista de Questões';
                 } else {
-                    botaoQuestoes.textContent = 'Mostrar lista de Questões'
+                    botaoQuestoes.textContent = 'Esconder lista de Questões'
                 }
               });
             function listaQuestoes() {
@@ -42,6 +42,9 @@
             }
         </script>
         <script>
+            $(document).ready(function() {
+                $('#questoes').hide();
+            });
             $(function () {
                 $('#questoes').removeClass('hidden');
             });
