@@ -10,7 +10,18 @@
 <body>
     <div>
         {% if request.user.is_authenticated %}
-            <p>{{request.user.username}} tem a sessão iniciada</p>
+            <button onclick="document.getElementById('userimage').src='{{ uploaded_file_url }}'">{{request.user.username}} tem a sessão iniciada</button>
+            <div id="userimagediv">
+                <img id="userimage" src="{{ uploaded_file_url }}">
+                <script>
+            $(document).ready(function() {
+                $('#userimagediv').hide();
+            });
+            $(function () {
+                $('#userimagediv').removeClass('hidden');
+            });
+        </script>
+            </div>
         {% else %}
             <p>O utilizador não tem a sessão iniciada</p>
             <a href="{% url 'votacao:registar' %}">Registar</a>
