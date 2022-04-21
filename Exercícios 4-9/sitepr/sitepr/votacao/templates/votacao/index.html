@@ -14,13 +14,13 @@
             <div id="userimagediv">
                 <img id="userimage" src="{{ uploaded_file_url }}">
                 <script>
-            $(document).ready(function() {
-                $('#userimagediv').hide();
-            });
-            $(function () {
-                $('#userimagediv').removeClass('hidden');
-            });
-        </script>
+                    $(document).ready(function() {
+                        $('#userimagediv').hide();
+                    });
+                    $(function () {
+                        $('#userimagediv').removeClass('hidden');
+                    });
+                </script>
             </div>
         {% else %}
             <p>O utilizador não tem a sessão iniciada</p>
@@ -81,6 +81,7 @@
             <p><a href="{% url 'votacao:perfil' %}"/>O teu perfil</p>
         {% endif %}
     </div>
+
 {% endblock %}
 
 {% block homepage %}

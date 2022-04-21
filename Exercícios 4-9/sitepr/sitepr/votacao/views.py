@@ -18,8 +18,13 @@ from django.contrib.auth.decorators import login_required, permission_required
 from .models import Questao, Opcao, Aluno, Foto
 
 def index(request):
-    latest_question_list = Questao.objects.all()
-    return render(request, 'votacao/index.html', {'latest_question_list': latest_question_list})
+    try:
+        latest_question_list = Questao.objects.all()
+        uploaded_file_url = request.user.foto.foto_url
+        return render(request, 'votacao/index.html', {'latest_question_list': latest_question_list}, {'uploaded_file_url': uploaded_file_url})
+    except ObjectDoesNotExist:
+        latest_question_list = Questao.objects.all()
+        return render(request, 'votacao/index.html', {'latest_question_list': latest_question_list})
 
 def detalhe(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
