@@ -10,18 +10,16 @@
 <body>
     <div>
         {% if request.user.is_authenticated %}
-            <button onclick="document.getElementById('userimage').src='{{ uploaded_file_url }}'">{{request.user.username}} tem a sessão iniciada</button>
-            <div id="userimagediv">
-                <img id="userimage" src="{{ uploaded_file_url }}">
-                <script>
-                    $(document).ready(function() {
-                        $('#userimagediv').hide();
-                    });
-                    $(function () {
-                        $('#userimagediv').removeClass('hidden');
-                    });
-                </script>
-            </div>
+            <button onmouseover="show()" id="btn">{{request.user.username}} tem a sessão iniciada</button>
+            <script>
+                function show() {
+                    document.getElementById('userimage').style.display = "block";
+                }
+            </script>
+        <br>
+        <br>
+        <img id="userimage" src="{{ uploaded_file_url }}" style="display:none;">
+    </div>
         {% else %}
             <p>O utilizador não tem a sessão iniciada</p>
             <a href="{% url 'votacao:registar' %}">Registar</a>
@@ -29,6 +27,7 @@
             <a href="{% url 'votacao:iniciarsessao' %}">Iniciar Sessão</a>
         {% endif %}
     </div>
+    <br>
     {% block body %}
         <button id="botaoQuestoes" onclick="listaQuestoes()">
             Mostrar lista de Questões
@@ -56,9 +55,6 @@
             $(document).ready(function() {
                 $('#questoes').hide();
             });
-            $(function () {
-                $('#questoes').removeClass('hidden');
-            });
         </script>
        {% if latest_question_list %}
         {% for questao in latest_question_list %}
@@ -81,7 +77,6 @@
             <p><a href="{% url 'votacao:perfil' %}"/>O teu perfil</p>
         {% endif %}
     </div>
-    <img src="{{ uploaded_file_url }}" alt="Imagem do utilizador">
 {% endblock %}
 
 {% block homepage %}
