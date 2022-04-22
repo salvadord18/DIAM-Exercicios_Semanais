@@ -10,10 +10,13 @@
 <body>
     <div>
         {% if request.user.is_authenticated %}
-            <button onmouseover="show()" id="btn">{{request.user.username}} tem a sessão iniciada</button>
+            <button onmouseover="show()" id="btn" onmouseout="hide()">{{request.user.username}} tem a sessão iniciada</button>
             <script>
                 function show() {
                     document.getElementById('userimage').style.display = "block";
+                }
+                function hide() {
+                    document.getElementById('userimage').style.display = "none";
                 }
             </script>
         <br>
@@ -32,7 +35,7 @@
         <button id="botaoQuestoes" onclick="listaQuestoes()">
             Mostrar lista de Questões
         </button>
-    <div id="questoes" class="hidden">
+    <div id="questoes">
         <script>
             const botaoQuestoes = document.getElementById('botaoQuestoes');
             botaoQuestoes.addEventListener('click', function handleClick() {
