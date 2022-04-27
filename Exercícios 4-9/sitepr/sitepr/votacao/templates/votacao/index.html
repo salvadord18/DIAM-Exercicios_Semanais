@@ -6,19 +6,12 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'votacao/css/estilos.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'votacao/scripts/scripts.js' %}"></script>
 </head>
 <body>
     <div>
         {% if request.user.is_authenticated %}
-            <button onmouseover="show()" id="btn" onmouseout="hide()">{{request.user.username}} tem a sessão iniciada</button>
-            <script>
-                function show() {
-                    document.getElementById('userimage').style.display = "block";
-                }
-                function hide() {
-                    document.getElementById('userimage').style.display = "none";
-                }
-            </script>
+            <a onmouseover="show()" id="u" onmouseout="hide()">{{request.user.username}} tem a sessão iniciada</a>
         <br>
         <br>
         <center><img id="userimage" src="{{ uploaded_file_url }}" style="display:none;"></center>
@@ -35,30 +28,7 @@
         <button id="botaoQuestoes" onclick="listaQuestoes()">
             Mostrar lista de Questões
         </button>
-    <div id="questoes">
-        <script>
-            const botaoQuestoes = document.getElementById('botaoQuestoes');
-            botaoQuestoes.addEventListener('click', function handleClick() {
-                if (botaoQuestoes.textContent == 'Esconder lista de Questões') {
-                    botaoQuestoes.textContent = 'Mostrar lista de Questões';
-                } else {
-                    botaoQuestoes.textContent = 'Esconder lista de Questões'
-                }
-              });
-            function listaQuestoes() {
-              var x = document.getElementById("questoes");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-        </script>
-        <script>
-            $(document).ready(function() {
-                $('#questoes').hide();
-            });
-        </script>
+    <div id="questoes" style="display: none">
        {% if latest_question_list %}
         {% for questao in latest_question_list %}
         <ul>
