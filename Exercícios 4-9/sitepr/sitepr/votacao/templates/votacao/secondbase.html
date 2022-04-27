@@ -1,5 +1,9 @@
 {% extends "./index.html" %}
 
 {% block homepage %}
-    <a href="{% url 'votacao:index' %}">Voltar à página inicial</a>
+<form action="{% url 'votacao:index' %}">
+    <button type="submit"><b>Voltar à página inicial</b></button>
+</form>
+<br>
+<br>
 {% endblock %}
