@@ -6,6 +6,13 @@ function hide() {
     document.getElementById('userimage').style.display = "none";
 }
 
+function showUserInfo() {
+    document.getElementById('userInfo').style.display = "block";
+}
+
+function hideUserInfo() {
+    document.getElementById('userInfo').style.display = "none";
+}
 
 function listaQuestoes() {
     var x = document.getElementById("questoes");

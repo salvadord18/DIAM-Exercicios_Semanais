@@ -7,7 +7,10 @@
 <div>
     {% if request.user.is_authenticated %}
         <h2>BEM-VINDO!</h2>
-        <form id="form1" action="{% url 'votacao:logoutview' %}">
+        <p>
+            <img src="{{ uploaded_file_url }}" alt="Imagem do utilizador" onmouseover="showUserInfo()" id="u" onmouseout="hideUserInfo()">
+        </p>
+        <center><form id="userInfo" action="{% url 'votacao:logoutview' %}" style="display:none;">
             <label for="username">Nome de utilizador:</label>
             <input type="text" id="username" name="username" value="{{request.user.username}}" readonly>
             <br><br>
@@ -18,6 +21,7 @@
             <input type="text" id="curso" name="curso" value="{{request.user.aluno.course}}" readonly>
             <br><br>
         </form>
+        </center>
             <br>
             <br>
             <form method="post" enctype="multipart/form-data" action="{% url 'votacao:fazer_upload' %}">
@@ -35,13 +39,8 @@
                 </p>
                 <br>
                 <br>
-                <p>
-                    <img src="{{ uploaded_file_url }}" alt="Imagem do utilizador">
-                </p>
             {% endif %}
-            <br>
-            <br>
-            <input type="submit" form="form1" value="TERMINAR SESSÃO">
+            <input type="submit" form="userInfo" value="TERMINAR SESSÃO">
     {% endif %}
 </div>
     <br>
